@@ -6,8 +6,8 @@ Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
 Content-Type: application/json
 
 {
-    "username" : "roy",
-    "email": "roy@hotmail.com",
+    "username" : "admin",
+    "email": "admin@hotmail.com",
     "password" : "123123",
     "isAdmin": "true"
 }
@@ -19,7 +19,7 @@ Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
 Content-Type: application/json
 
 {
-    "username" : "kimi",
+    "username" : "admin",
     "password" : "123123"
 }
 
@@ -46,11 +46,29 @@ authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2M4ZGU4Z
     "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2M4ZGU4ZjJlOGZlNjAzMGNhYmM5ZCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NTc2Mzc1MDJ9.3TXI43pvlCjWapQ65me0WTsLKp2hSxrKgNAASK5hAL0"
 }
 
-###
-DELETE  http://localhost:5000/api/auth/user/2
+###Update User
+PUT http://localhost:5000/api/users/:id
 User-Agent: rest-client
 Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
 Content-Type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjU3NTU4NzE0LCJleHAiOjE2NTc1NTg3NDR9.PTdntlhEUlcaAumVeAbT2FbgPUCDQXmQgEZJ4VReG4Q
 
+{
+
+}
+
+###Delete User
+DELETE http://localhost:5000/api/users/:id
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjU3NTU4NzE0LCJleHAiOjE2NTc1NTg3NDR9.PTdntlhEUlcaAumVeAbT2FbgPUCDQXmQgEZJ4VReG4Q
+
+
+###GEt all User
+GET http://localhost:5000/api/users/
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2Q4ZjQ3NjcxNmIxMzUxODk4MGQwYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1NzYzODk0NCwiZXhwIjoxNjU3NjQwNzQ0fQ.2IHpZ-v-njQPRDci4R6ymkNer0aiGMgfApILbE3cWgI
 
