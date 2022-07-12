@@ -19,7 +19,6 @@ const SimpleVerify = (req, res, next) => {
 
 const VerifyyTokenAndAuth = (req, res, next) => {
     SimpleVerify(req, res, () => {
-        console.log(req.user)
         if(req.user.id === req.params.id || req.user.isAdmin){
             next();
         }else {

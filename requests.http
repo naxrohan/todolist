@@ -72,3 +72,42 @@ Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
 Content-Type: application/json
 authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2Q4ZjQ3NjcxNmIxMzUxODk4MGQwYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1NzYzODk0NCwiZXhwIjoxNjU3NjQwNzQ0fQ.2IHpZ-v-njQPRDci4R6ymkNer0aiGMgfApILbE3cWgI
 
+###Create a Note
+POST http://localhost:5000/api/notes/
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2Q4ZjQ3NjcxNmIxMzUxODk4MGQwYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1NzY0MTA5OCwiZXhwIjoxNjU3NjQyODk4fQ.lYFQhgWEj66PkN2eyvD2gMF3Pi5n6SxvqMxvwKrcEF4
+
+{
+    "title" : "Demo NOte 43",
+    "color" : "green",
+    "userId" : "62cc8dbdf2e8fe6030cabc9b",
+    "list" : [
+        "Demo NOte 1",
+        "Demo NOte 2",
+        "Demo NOte 3"
+    ]
+}
+
+###delete a Note
+DELETE http://localhost:5000/api/notes/62cd9590b4b78b54696f2add
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2Q4ZjQ3NjcxNmIxMzUxODk4MGQwYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1NzY0MjYwNCwiZXhwIjoxNjU3NjQ0NDA0fQ.cdPCGyf0ppyLoLAXP3YvjJu2BZSbWq6smQQb9kJgw0c
+
+
+###get a Note
+GET http://localhost:5000/api/notes/find/62cd9590b4b78b54696f2add
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2Q4ZjQ3NjcxNmIxMzUxODk4MGQwYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1NzY0MjYwNCwiZXhwIjoxNjU3NjQ0NDA0fQ.cdPCGyf0ppyLoLAXP3YvjJu2BZSbWq6smQQb9kJgw0c
+
+###Create all Note
+GET http://localhost:5000/api/notes/
+User-Agent: rest-client
+Accept-Language: en-GB,en-US;q=0.8,en;q=0.6,zh-CN;q=0.4
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2Q4ZjQ3NjcxNmIxMzUxODk4MGQwYiIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1NzY0MjYwNCwiZXhwIjoxNjU3NjQ0NDA0fQ.cdPCGyf0ppyLoLAXP3YvjJu2BZSbWq6smQQb9kJgw0c
