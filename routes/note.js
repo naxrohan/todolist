@@ -1,21 +1,21 @@
 const Note = require("../models/Note");
-const { VerifyyTokenAndAuth, VerifyyTokenAndAdmin } = require("./verify");
+const { VerifyyTokenAndAuth, VerifyyTokenAndAdmin, VerifyyTokenOnly } = require("./verify");
 
 const router = require("express").Router();
 
 // Create
-router.post("/:id", VerifyyTokenAndAuth, async (req, res) => {
+router.post("/:id", VerifyyTokenOnly, async (req, res) => {
     try {
         const newNote = new Note(req.body);
-        await newNote.save();
-        res.status(200).json("Note is created..");
+        const createdNote = await newNote.save();
+        res.status(200).json(createdNote);
     } catch (error) {
         res.status(500).json(error);
     }
 });
 
 // Update.
-router.put("/:id",VerifyyTokenAndAuth, async (req, res) => {
+router.post("/update/:id",VerifyyTokenOnly, async (req, res) => {
     try {
         const updatedNote = await Note.findByIdAndUpdate(
             req.params.id,{
@@ -23,7 +23,6 @@ router.put("/:id",VerifyyTokenAndAuth, async (req, res) => {
             },
             {new: true}
         );
-
         res.status(200).json(updatedNote);
     } catch (error) {
         res.status(500).json(error);
@@ -31,7 +30,7 @@ router.put("/:id",VerifyyTokenAndAuth, async (req, res) => {
 });
 
 // Delete.
-router.delete("/:id", VerifyyTokenAndAuth, async (req, res) => {
+router.delete("/:id", VerifyyTokenOnly, async (req, res) => {
     try {
         await Note.findByIdAndDelete(req.params.id);
 
@@ -42,7 +41,7 @@ router.delete("/:id", VerifyyTokenAndAuth, async (req, res) => {
 });
 
 // Get note.
-router.get("/find/:id", VerifyyTokenAndAuth, async (req, res) => {
+router.get("/find/:id", VerifyyTokenOnly, async (req, res) => {
     try {
         const note = await Note.findById(req.params.id);
         res.status(200).json(note);
@@ -51,13 +50,13 @@ router.get("/find/:id", VerifyyTokenAndAuth, async (req, res) => {
     }
 });
 
-// // Get All notes.
-router.get("/", VerifyyTokenAndAuth, async (req, res) => {
+// Get All notes.
+router.get("/",VerifyyTokenOnly, async (req, res) => {
     const query = req.query.new;
     try {
         const note = query 
-        ? await Note.find().sort({_id: -1}).limit(5)
-        : await Note.find();
+        ? await Note.find({userId: req.user.id}).sort({_id: -1}).limit(5)
+        : await Note.find({userId: req.user.id})
 
         res.status(200).json(note);
 

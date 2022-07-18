@@ -17,6 +17,19 @@ const SimpleVerify = (req, res, next) => {
     }
 };
 
+const VerifyyTokenOnly = (req, res, next) => {
+    SimpleVerify(req, res, () => {
+        if(req.user.id !== null || req.user.isAdmin){
+            next();
+        }else {
+            res.status(403).json(
+                "Invalid Token action not allowed.."
+            );
+        }
+    })
+};
+
+// validate by user id for User requests only
 const VerifyyTokenAndAuth = (req, res, next) => {
     SimpleVerify(req, res, () => {
         if(req.user.id === req.params.id || req.user.isAdmin){
@@ -29,6 +42,7 @@ const VerifyyTokenAndAuth = (req, res, next) => {
     })
 };
 
+// validate if the user is Admin
 const VerifyyTokenAndAdmin = (req, res, next) => {
     SimpleVerify(req, res, () => {
         if(req.user.isAdmin){
@@ -44,5 +58,6 @@ const VerifyyTokenAndAdmin = (req, res, next) => {
 module.exports = {
     SimpleVerify,
     VerifyyTokenAndAuth,
-    VerifyyTokenAndAdmin
+    VerifyyTokenAndAdmin,
+    VerifyyTokenOnly
 }
