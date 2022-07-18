@@ -18,6 +18,13 @@ mongoose.connect(
     console.log("failed db connection..")
 })
 
+/* enable CORS */
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization, User-Agent");
+    //res.header("Access-Control-Allow-Methods: GET, POST");
+    next();
+});
 
 app.use(express.json());
 app.use("/api/auth", authRoute);
