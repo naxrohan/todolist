@@ -4,6 +4,7 @@ const userRoute = require('./routes/user');
 const notesRoute = require('./routes/note');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const path = require("path");
 
 const app = express();
 
