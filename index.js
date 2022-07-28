@@ -19,18 +19,19 @@ mongoose.connect(
 })
 
 /* enable CORS */
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin","*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization, User-Agent");
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin","*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization, User-Agent");
     //res.header("Access-Control-Allow-Methods: GET, POST");
-    next();
-});
+    // next();
+// });
 
 app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/notes", notesRoute);
 
+// child folder static
 app.use(express.static(path.join(__dirname, "/todosite_client/build")));
 
 app.get('*', (req, res) => {
