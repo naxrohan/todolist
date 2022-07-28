@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000/api/"
+const BASE_URL = "https://todosite2.herokuapp.com/api/"
 
 
 const storeData = JSON.parse(localStorage.getItem("persist:root"));

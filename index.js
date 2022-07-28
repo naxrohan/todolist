@@ -31,6 +31,12 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/notes", notesRoute);
 
+app.use(express.static(path.join(__dirname, "/todosite_client/build")));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/todosite_client/build', 'index.html'));
+});
+
 
 app.listen( process.env.SERVE_PORT || 5000, () => {
     console.log("server is running!!");
