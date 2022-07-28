@@ -29,7 +29,10 @@ const RefreshToken = () => {
         return config;
     });
 
-    return `<!--RefreshToken: ${diffTime}-->`
+    return (
+        <></>
+    )
+    //`<!--RefreshToken: ${diffTime}-->`
 }
 
 export default RefreshToken
