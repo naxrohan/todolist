@@ -14,25 +14,13 @@ const Container = styled.div`
     justify-content: center;
     flex-direction: column;
 `
-const TopBox = styled.div`
-  flex: 1;
-  width: 100%;
-  margin-top: 10px;
-`
-const CreateNewNote = styled.h2`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 400;
-`
-
 const BottomBox = styled.div`
   flex: 10;
   width: 100%;
   height: 100%;
   overflow-y: scroll;
   ::-webkit-scrollbar {width: 5px;}
-  ::-webkit-scrollbar-track {background: #f1f1f1;}
+  ::-webkit-scrollbar-track {background: transparent;}
   ::-webkit-scrollbar-thumb {background: #888;}
   ::-webkit-scrollbar-thumb:hover {background: #555;}
 `
@@ -138,11 +126,6 @@ const NotesListing = () => {
 
   return (
     <Container>
-      <TopBox>
-        <CreateNewNote>
-          Create a Note
-        </CreateNewNote>
-      </TopBox>
       <BottomBox>
         <NotesListingHolder>
           { allNotes.length > 0 

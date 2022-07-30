@@ -13,9 +13,9 @@ import { mobile } from '../responsive';
 
 const Container = styled.div`
     width: 20%;
-    height: 90vh;
+    height: 100vh;
     background-color: #000000aa;
-    padding: 40px 11px 40px 0px;
+    padding: 0px 11px 0px 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,6 +25,7 @@ const MenuItemContainer = styled.div`
     width: 100%;
     height: 100%;
     flex: 20;
+    padding: 40px 0px 0px 0px;
 `
 const MenuItem = styled.div`
     display: flex;
