@@ -9,6 +9,7 @@ import {
 import { Link } from 'react-router-dom';
 import { Badge } from '@material-ui/core';
 import {useSelector} from "react-redux"
+import { mobile } from '../responsive';
 
 const Container = styled.div`
     width: 20%;
@@ -51,6 +52,8 @@ const MenuText = styled.div`
     flex: 2;
     cursor: pointer;
     margin-left: 10px;
+    font-size: 15px;
+    ${mobile({visibility: "hidden"})}
 `
 const MenuFooter = styled.div`
     flex: 1;
@@ -73,7 +76,7 @@ const SidebarMenu = () => {
                       <Icon>
                             <NoteAdd />
                       </Icon>
-                      <MenuText>Create Note</MenuText>
+                      <MenuText>Create&nbsp;Note</MenuText>
                   </MenuItem>
               </Link>
               <Link to={`/`} style={{textDecoration: 'none'}}>
@@ -83,7 +86,7 @@ const SidebarMenu = () => {
                           <NotesOutlined />
                         </Badge>
                       </Icon>
-                      <MenuText>My Notes</MenuText>
+                      <MenuText>My&nbsp;Notes</MenuText>
                   </MenuItem>
               </Link>
               <MenuItem>

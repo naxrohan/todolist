@@ -4,9 +4,9 @@ import { AddSharp, ArchiveOutlined, DeleteOutlineOutlined, BrushSharp, SaveOutli
 import { useLocation } from 'react-router-dom'
 import { privateRequest } from '../requestMethods'
 import ColorDrop from './ColorDrop'
-import NotesTodoItemsList from './NotesTodoItemsList'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateNote } from '../redux/apiCalls'
+import { mobile } from '../responsive'
 
 const Container = styled.div`
     width: 80%;
@@ -24,15 +24,19 @@ const NoteItem = styled.div`
   border: 0.5px solid whitesmoke;
   border-radius: 10px;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  /* align-items: flex-start; */
+  /* justify-content: flex-start; */
   flex-direction: column;
   margin: 10px 0px 0px 20px;
   background-color: ${props => props.color};
+
+  max-height: 90vh;
+  min-height: 50vh;
+  ${mobile({width: "auto"})}
 `
 const NoteTitle = styled.input`
   height: 30px;
-  width: 500px;
+  /* width: 500px; */
   padding: 10px;
   margin: 5px 10px 20px 5px;
   color: white;
@@ -44,17 +48,24 @@ const NoteTitle = styled.input`
   &:focus {
     outline: none;
   }
+  ${mobile({padding: "5px 0px 5px 0px", margin: '0px 0px 5px 15px'})}
 
 `
 const NotePreview = styled.div`
   padding: 1px;
+  min-height: 35vh;
+  overflow-y: scroll;
+  ::-webkit-scrollbar {width: 5px;}
+  ::-webkit-scrollbar-track {background: #555;}
+  ::-webkit-scrollbar-thumb {background: #999;}
+  ::-webkit-scrollbar-thumb:hover {background: #555;}
 `
 const NotePreviewItem = styled.div`
   color: #ffffffcc;
   font-size: 15px;
   margin-left: 0px;
   margin-bottom: 5px;
-  width: 540px;
+  width: 100%;
   text-overflow: clip;
   display: flex;
   align-items: center;
@@ -69,7 +80,7 @@ const NoteItemCb = styled.input`
   margin: 5px 10px 5px 10px;
 `
 const NoteItemTx = styled.input`
-  width: 450px;
+  width: 100%;
   color: white;
   background-color: transparent;
   font-size: 15px;
@@ -95,7 +106,7 @@ const NoteItemDel = styled.div`
   }
 `
 const NoteActionIcons = styled.div`
-  margin: 10px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
