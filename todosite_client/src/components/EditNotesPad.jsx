@@ -106,10 +106,9 @@ const NoteItemDel = styled.div`
   }
 `
 const NoteActionIcons = styled.div`
-  padding: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 `
 const NoteIconBox = styled.div`
     height: 30px;
