@@ -125,7 +125,8 @@ const NoteIconBox = styled.div`
         transform: scale(1.1);
     }
 `
-
+//todo: add item draggable
+//todo: sort item by done status and move to the bottom of the list
 
 const EditNotesPad = () => {
   const location = useLocation();
