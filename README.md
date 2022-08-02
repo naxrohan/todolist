@@ -1,7 +1,9 @@
 # Todo List App
 
-API: Mongoose, Express, JWT, env
-Client: reactjs, material-ui/icons, redux-toolkit, react-redux
+### API:
+Mongoose, Express, JWT, dotenv, crypto-js
+### Client:
+reactjs|dom|routes, axios, material-ui/icons, redux-toolkit|persist, react-redux
 
 is built using MERN stack.
 - Create new todo list
